@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NaturaGlow – Soins naturels pour vos cheveux</title>
+<meta name="description" content="NaturaGlow : huile fortifiante, huile de densité capillaire et masque nourrissant. Ingrédients naturels, sans parabènes, sans silicones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1d3b2a; --leaf:#3f6b3a; --paper:#fbf8f1; --sand:#f1ebdd; --ink:#24302a;
+  --amber:#b5714a; --amber-bg:#f6e6da;
+  --sage:#5e8a4f; --sage-bg:#e3eddc;
+  --plum:#7a3f82; --plum-bg:#eadcee;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Nunito Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px}
+h1,h2,h3,.logo{font-family:"Fraunces",Georgia,serif;color:var(--forest);line-height:1.15}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e5dfd0}
+.bar{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-size:1.6rem;font-weight:700;text-decoration:none}
+nav{display:flex;gap:26px}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--leaf)}
+.btn{display:inline-block;background:var(--forest);color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-weight:700;transition:background .2s}
+.btn:hover{background:var(--leaf)}
+.btn.ghost{background:transparent;color:var(--forest);border:2px solid var(--forest)}
+.btn.ghost:hover{background:var(--forest);color:#fff}
+
+/* Accueil */
+.hero{padding:70px 0 50px;background:linear-gradient(180deg,var(--sand),var(--paper))}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;letter-spacing:-.02em}
+.hero .tag{font-family:"Fraunces",serif;font-style:italic;font-size:1.35rem;color:var(--leaf);margin:14px 0 18px}
+.hero p{max-width:46ch;margin-bottom:28px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.trio img{border-radius:var(--radius);aspect-ratio:3/4;object-fit:cover;width:100%}
+.trio img:nth-child(2){margin-top:28px}
+
+/* Engagements */
+.promises{padding:26px 0;border-block:1px solid #e5dfd0;background:var(--paper)}
+.promises ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 28px}
+.promises li{font-weight:700;color:var(--forest);font-size:.97rem}
+.promises li::before{content:"✿ ";color:var(--leaf)}
+
+section{padding:84px 0}
+.head{max-width:640px;margin-bottom:46px}
+.head h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
+
+/* Produits : trois lignes alternées, chacune avec sa couleur */
+.product{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center;padding:34px;border-radius:28px;margin-bottom:28px}
+.product:nth-of-type(even){grid-template-columns:1.1fr 1fr}
+.product:nth-of-type(even) .pic{order:2}
+.p1{background:var(--amber-bg);--c:var(--amber)}
+.p2{background:var(--sage-bg);--c:var(--sage)}
+.p3{background:var(--plum-bg);--c:var(--plum)}
+.pic img{border-radius:20px;width:100%;aspect-ratio:1/1;object-fit:cover}
+.product h3{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--c);margin-bottom:8px}
+.benefits{font-style:italic;font-family:"Fraunces",serif;margin-bottom:16px;font-size:1.1rem}
+.product dl{display:grid;gap:12px;margin:18px 0 22px}
+.product dt{font-weight:700;color:var(--c)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips span{background:#fff;border:1px solid var(--c);color:var(--ink);padding:4px 14px;border-radius:999px;font-size:.9rem}
+.size{font-size:.92rem;opacity:.8;margin-bottom:16px}
+.product .btn{background:var(--c)}
+.product .btn:hover{filter:brightness(.88)}
+
+/* Routine */
+.routine{background:var(--forest);color:#eef3e9}
+.routine h2{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s}
+.steps li{list-style:none;counter-increment:s;border-top:2px solid #6f9a68;padding-top:18px}
+.steps li::before{content:"Étape " counter(s);display:block;font-family:"Fraunces",serif;font-style:italic;color:#bcd8b2;margin-bottom:6px}
+.steps strong{display:block;font-family:"Fraunces",serif;font-size:1.3rem;color:#fff;margin-bottom:6px}
+
+/* Commander */
+.order{background:var(--sand)}
+form{display:grid;gap:16px;max-width:560px}
+label{display:grid;gap:6px;font-weight:700;color:var(--forest)}
+input,select,textarea{font:inherit;padding:12px 14px;border:1.5px solid #cfc7b3;border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:100px;resize:vertical}
+.note{min-height:1.4em;font-weight:700;color:var(--leaf)}
+
+footer{background:#14281c;color:#cfdccb;padding:38px 0;text-align:center;font-size:.93rem}
+footer .logo{color:#fff;display:block;margin-bottom:6px}
+
+@media (max-width:860px){
+  nav{display:none}
+  .hero-grid,.product,.product:nth-of-type(even){grid-template-columns:1fr}
+  .product:nth-of-type(even) .pic{order:0}
+  .steps{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .product{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#accueil">NaturaGlow</a>
+    <nav aria-label="Navigation principale">
+      <a href="#produits">Nos produits</a>
+      <a href="#routine">Routine</a>
+      <a href="#commander">Commander</a>
+    </nav>
+    <a class="btn" href="#commander">Commander</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero" id="accueil">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>La nature au service de vos cheveux</h1>
+        <p class="tag">Des cheveux plus forts, plus sains et plus beaux</p>
+        <p>NaturaGlow réunit trois soins à base d’huiles et de beurres naturels : une huile fortifiante, une huile de densité capillaire et un masque nourrissant.</p>
+        <div class="cta">
+          <a class="btn" href="#produits">Découvrir les soins</a>
+          <a class="btn ghost" href="#routine">Voir la routine</a>
+        </div>
+      </div>
+      <div class="trio" aria-label="Les trois produits NaturaGlow">
+        <img src="images/p1.jpg" alt="Huile fortifiante pour cheveux, flacon de 30 ml">
+        <img src="images/p2.jpg" alt="Huile de densité capillaire, flacon de 30 ml">
+        <img src="images/p3.jpg" alt="Masque capillaire nourrissant, pot de 200 g">
+      </div>
+    </div>
+  </div>
+
+  <div class="promises">
+    <ul class="wrap">
+      <li>Ingrédients naturels et de qualité</li>
+      <li>Sans parabènes, sans silicones</li>
+      <li>Non testé sur les animaux</li>
+      <li>Convient à tous types de cheveux</li>
+    </ul>
+  </div>
+
+  <section id="produits">
+    <div class="wrap">
+      <div class="head">
+        <h2>Trois soins, un même objectif : des cheveux en pleine santé</h2>
+        <p>Chaque produit a son rôle. Utilisez-les ensemble ou choisissez celui qui répond le mieux à vos cheveux.</p>
+      </div>
+
+      <article class="product p1">
+        <div class="pic"><img src="images/p1.jpg" alt="Huile fortifiante pour cheveux" loading="lazy"></div>
+        <div>
+          <h3>Huile fortifiante pour cheveux</h3>
+          <p class="benefits">Renforce, nourrit, réduit la casse</p>
+          <p class="size">Flacon de 30 ml</p>
+          <dl>
+            <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Huile d’amande douce</span><span>Huile de sésame</span><span>Vitamine E</span></dd></div>
+            <div><dt>Objectif</dt><dd>Nourrir la fibre capillaire, améliorer la douceur et aider à réduire la casse.</dd></div>
+            <div><dt>Convient à</dt><dd>Tous types de cheveux (secs, abîmés ou fragilisés).</dd></div>
+          </dl>
+          <a class="btn" href="#commander" data-produit="Huile fortifiante pour cheveux">Commander</a>
+        </div>
+      </article>
+
+      <article class="product p2">
+        <div class="pic"><img src="images/p2.jpg" alt="Huile de densité capillaire" loading="lazy"></div>
+        <div>
+          <h3>Huile de densité capillaire</h3>
+          <p class="benefits">Assouplit, stimule, favorise la pousse</p>
+          <p class="size">Flacon de 30 ml</p>
+          <dl>
+            <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Huile de ricin</span><span>Huile d’olive</span></dd></div>
+            <div><dt>Objectif</dt><dd>Nourrir les cheveux, assouplir les longueurs et améliorer leur apparence.</dd></div>
+            <div><dt>Convient à</dt><dd>Cheveux fragiles, fins et en manque de densité.</dd></div>
+          </dl>
+          <a class="btn" href="#commander" data-produit="Huile de densité capillaire">Commander</a>
+        </div>
+      </article>
+
+      <article class="product p3">
+        <div class="pic"><img src="images/p3.jpg" alt="Masque capillaire nourrissant" loading="lazy"></div>
+        <div>
+          <h3>Masque capillaire nourrissant</h3>
+          <p class="benefits">Répare, hydrate, facilite le démêlage</p>
+          <p class="size">Pot de 200 g</p>
+          <dl>
+            <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Beurre de karité</span><span>Huile d’olive</span><span>Vitamine E</span></dd></div>
+            <div><dt>Objectif</dt><dd>Nourrir les cheveux secs, apporter de la douceur et faciliter le démêlage.</dd></div>
+            <div><dt>Convient à</dt><dd>Cheveux secs, bouclés, frisés ou abîmés.</dd></div>
+          </dl>
+          <a class="btn" href="#commander" data-produit="Masque capillaire nourrissant">Commander</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="routine" id="routine">
+    <div class="wrap">
+      <div class="head">
+        <h2>Une routine simple</h2>
+        <p>Une façon de combiner les trois soins. Adaptez la fréquence à vos cheveux.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Masque nourrissant</strong>Appliquez sur les longueurs, laissez poser, puis rincez abondamment.</li>
+        <li><strong>Huile de densité</strong>Massez le cuir chevelu du bout des doigts pour accompagner la pousse.</li>
+        <li><strong>Huile fortifiante</strong>Quelques gouttes sur les longueurs et les pointes pour limiter la casse.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="order" id="commander">
+    <div class="wrap">
+      <div class="head">
+        <h2>Passer commande</h2>
+        <p>Choisissez votre soin et laissez-nous vos coordonnées. Nous vous répondons pour confirmer la commande.</p>
+      </div>
+      <form id="form">
+        <label>Nom complet <input name="nom" required autocomplete="name"></label>
+        <label>Téléphone <input name="tel" type="tel" required autocomplete="tel"></label>
+        <label>Produit
+          <select name="produit" id="produit">
+            <option>Huile fortifiante pour cheveux</option>
+            <option>Huile de densité capillaire</option>
+            <option>Masque capillaire nourrissant</option>
+            <option>Les trois soins</option>
+          </select>
+        </label>
+        <label>Message (facultatif) <textarea name="msg"></textarea></label>
+        <button class="btn" type="submit">Envoyer la demande</button>
+        <p class="note" id="note" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">NaturaGlow</span>
+    Prendre soin de vos cheveux, c’est aussi prendre soin de vous.
+  </div>
+</footer>
+
+<script>
+  // Pré-sélectionne le produit quand on clique sur « Commander »
+  document.querySelectorAll('[data-produit]').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('produit').value = a.dataset.produit;
+    });
+  });
+  // Démo du formulaire : à relier plus tard à votre WhatsApp, e-mail ou serveur
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('note').textContent = 'Merci ! Votre demande a bien été enregistrée.';
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
