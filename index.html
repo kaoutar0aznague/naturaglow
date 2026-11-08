@@ -46,9 +46,8 @@ nav a:hover{color:var(--leaf)}
 .hero .tag{font-family:"Fraunces",serif;font-style:italic;font-size:1.35rem;color:var(--leaf);margin:14px 0 18px}
 .hero p{max-width:46ch;margin-bottom:28px}
 .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.trio img{border-radius:var(--radius);aspect-ratio:3/4;object-fit:cover;width:100%}
-.trio img:nth-child(2){margin-top:28px}
+.hero-img img{border-radius:28px;width:100%;aspect-ratio:4/5;object-fit:cover}
+.logo img{height:56px;width:auto}
 
 /* Engagements */
 .promises{padding:26px 0;border-block:1px solid #e5dfd0;background:var(--paper)}
@@ -78,6 +77,16 @@ section{padding:84px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .chips span{background:#fff;border:1px solid var(--c);color:var(--ink);padding:4px 14px;border-radius:999px;font-size:.9rem}
 .price{font-family:"Fraunces",Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--c);margin-bottom:4px}
+.packs{background:var(--sand)}
+.coffret{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:center;background:#fff;border-radius:28px;padding:18px;margin-bottom:22px}
+.coffret img,.pack img{border-radius:20px;width:100%;object-fit:cover}
+.coffret h3,.pack h3{font-size:1.6rem;margin-bottom:6px}
+.coffret p,.pack p{margin-bottom:10px}
+.duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pack{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;background:#fff;border-radius:24px;padding:16px}
+.pack img{aspect-ratio:1/1}
+.packs .price{color:var(--forest)}
+.price s{font-size:1rem;font-weight:400;opacity:.6;margin-left:8px}
 .size{font-size:.92rem;opacity:.8;margin-bottom:16px}
 .product .btn{background:var(--c)}
 .product .btn:hover{filter:brightness(.88)}
@@ -103,7 +112,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
 
 @media (max-width:860px){
   nav{display:none}
-  .hero-grid,.grid{grid-template-columns:1fr}
+  .hero-grid,.grid,.coffret,.duo-grid,.pack{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   section{padding:60px 0}
   .product{padding:22px}
@@ -117,9 +126,10 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#accueil">NaturaGlow</a>
+    <a class="logo" href="#accueil"><img src="images/logo.png" alt="NaturaGlow"></a>
     <nav aria-label="Navigation principale">
       <a href="#produits">Nos produits</a>
+      <a href="#packs">Packs</a>
       <a href="#routine">Routine</a>
       <a href="#commander">Commander</a>
       <a href="#contact">Service client</a>
@@ -140,11 +150,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
           <a class="btn ghost" href="#routine">Voir la routine</a>
         </div>
       </div>
-      <div class="trio" aria-label="Les trois produits NaturaGlow">
-        <img src="images/p1.jpg" alt="Huile fortifiante pour cheveux, flacon de 30 ml">
-        <img src="images/p2.jpg" alt="Huile de densité capillaire, flacon de 30 ml">
-        <img src="images/p3.jpg" alt="Masque capillaire nourrissant, pot de 200 g">
-      </div>
+      <div class="hero-img"><img src="images/hero.jpg" alt="Huile fortifiante NaturaGlow devant une chevelure brillante" width="683" height="853"></div>
     </div>
   </div>
 
@@ -166,7 +172,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
 
       <div class="grid">
       <article class="product p1"><span class="badge">Huile</span>
-        <div class="pic"><img src="images/p1.jpg" alt="Huile fortifiante pour cheveux" loading="lazy"></div>
+        <div class="pic"><img src="images/fortifiante.jpg" alt="Huile fortifiante pour cheveux, flacon de 30 ml" loading="lazy"></div>
         <div>
           <h3>Huile fortifiante pour cheveux</h3>
           <p class="benefits">Renforce, nourrit, réduit la casse</p>
@@ -199,12 +205,12 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
       </article>
 
       <article class="product p3"><span class="badge">Masque</span>
-        <div class="pic"><img src="images/p3.jpg" alt="Masque capillaire nourrissant" loading="lazy"></div>
+        <div class="pic"><img src="images/masque.jpg" alt="Masque capillaire nourrissant, pot de 100 g" loading="lazy"></div>
         <div>
           <h3>Masque capillaire nourrissant</h3>
           <p class="benefits">Répare, hydrate, facilite le démêlage</p>
           <p class="price">129 DH</p>
-          <p class="size">Pot de 200 g</p>
+          <p class="size">Pot de 100 g</p>
           <dl>
             <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Beurre de karité</span><span>Huile d’olive</span><span>Vitamine E</span></dd></div>
             <div><dt>Objectif</dt><dd>Nourrir les cheveux secs, apporter de la douceur et faciliter le démêlage.</dd></div>
@@ -213,6 +219,45 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
           <a class="btn" href="#commander" data-produit="Masque capillaire nourrissant">Commander</a>
         </div>
       </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="packs" id="packs">
+    <div class="wrap">
+      <div class="head">
+        <h2>Nos packs</h2>
+        <p>Associez les soins et payez moins que l’achat séparé.</p>
+      </div>
+      <!-- Prix de test : à remplacer par vos vrais prix -->
+      <article class="coffret">
+        <img src="images/coffret.jpg" alt="Coffret NaturaGlow avec deux huiles et un masque" loading="lazy">
+        <div>
+          <h3>Coffret Soin Complet</h3>
+          <p>Huile fortifiante, huile de densité et masque nourrissant, réunis dans un coffret cadeau.</p>
+          <p class="price">389 DH <s>447 DH</s></p>
+          <a class="btn" href="#commander" data-produit="Coffret Soin Complet">Commander le coffret</a>
+        </div>
+      </article>
+      <div class="duo-grid">
+        <article class="pack">
+          <img src="images/duo.jpg" alt="Huile fortifiante et huile de densité capillaire" loading="lazy">
+          <div>
+            <h3>Pack Duo Huiles</h3>
+            <p>Huile fortifiante et huile de densité.</p>
+            <p class="price">279 DH <s>318 DH</s></p>
+            <a class="btn" href="#commander" data-produit="Pack Duo Huiles">Commander</a>
+          </div>
+        </article>
+        <article class="pack">
+          <img src="images/paire.jpg" alt="Huile capillaire et masque nourrissant" loading="lazy">
+          <div>
+            <h3>Pack Huile et Masque</h3>
+            <p>Huile fortifiante et masque nourrissant.</p>
+            <p class="price">249 DH <s>278 DH</s></p>
+            <a class="btn" href="#commander" data-produit="Pack Huile et Masque">Commander</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -245,7 +290,9 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
             <option>Huile fortifiante pour cheveux</option>
             <option>Huile de densité capillaire</option>
             <option>Masque capillaire nourrissant</option>
-            <option>Les trois soins</option>
+            <option>Pack Duo Huiles</option>
+            <option>Pack Huile et Masque</option>
+            <option>Coffret Soin Complet</option>
           </select>
         </label>
         <label>Message (facultatif) <textarea name="msg"></textarea></label>
