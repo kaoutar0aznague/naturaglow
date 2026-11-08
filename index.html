@@ -77,6 +77,7 @@ section{padding:84px 0}
 .product dt{font-weight:700;color:var(--c)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .chips span{background:#fff;border:1px solid var(--c);color:var(--ink);padding:4px 14px;border-radius:999px;font-size:.9rem}
+.price{font-family:"Fraunces",Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--c);margin-bottom:4px}
 .size{font-size:.92rem;opacity:.8;margin-bottom:16px}
 .product .btn{background:var(--c)}
 .product .btn:hover{filter:brightness(.88)}
@@ -121,6 +122,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
       <a href="#produits">Nos produits</a>
       <a href="#routine">Routine</a>
       <a href="#commander">Commander</a>
+      <a href="#contact">Service client</a>
     </nav>
     <a class="btn" href="#commander">Commander</a>
   </div>
@@ -168,6 +170,8 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
         <div>
           <h3>Huile fortifiante pour cheveux</h3>
           <p class="benefits">Renforce, nourrit, réduit la casse</p>
+          <!-- Prix de test : à remplacer par vos vrais prix -->
+          <p class="price">149 DH</p>
           <p class="size">Flacon de 30 ml</p>
           <dl>
             <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Huile d’amande douce</span><span>Huile de sésame</span><span>Vitamine E</span></dd></div>
@@ -183,6 +187,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
         <div>
           <h3>Huile de densité capillaire</h3>
           <p class="benefits">Assouplit, stimule, favorise la pousse</p>
+          <p class="price">169 DH</p>
           <p class="size">Flacon de 30 ml</p>
           <dl>
             <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Huile de ricin</span><span>Huile d’olive</span></dd></div>
@@ -198,6 +203,7 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
         <div>
           <h3>Masque capillaire nourrissant</h3>
           <p class="benefits">Répare, hydrate, facilite le démêlage</p>
+          <p class="price">129 DH</p>
           <p class="size">Pot de 200 g</p>
           <dl>
             <div><dt>Ingrédients</dt><dd class="chips"><span>Huile de coco</span><span>Beurre de karité</span><span>Huile d’olive</span><span>Vitamine E</span></dd></div>
@@ -248,6 +254,15 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
       </form>
     </div>
   </section>
+  <section class="service" id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>Service client</h2>
+        <p>Une question sur un soin ou sur votre commande ? Écrivez-nous, nous vous répondons par e-mail.</p>
+      </div>
+      <a class="btn" href="mailto:aznaguekaoutar@gmail.com?subject=Question%20NaturaGlow">aznaguekaoutar@gmail.com</a>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -264,11 +279,14 @@ footer .logo{color:#fff;display:block;margin-bottom:6px}
       document.getElementById('produit').value = a.dataset.produit;
     });
   });
-  // Démo du formulaire : à relier plus tard à votre WhatsApp, e-mail ou serveur
+  // Le formulaire ouvre la messagerie avec la demande déjà remplie
   document.getElementById('form').addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('note').textContent = 'Merci ! Votre demande a bien été enregistrée.';
-    e.target.reset();
+    var f = e.target;
+    var corps = 'Nom : ' + f.nom.value + '\nTéléphone : ' + f.tel.value + '\nProduit : ' + f.produit.value + '\nMessage : ' + f.msg.value;
+    window.location.href = 'mailto:aznaguekaoutar@gmail.com?subject=' + encodeURIComponent('Commande NaturaGlow') + '&body=' + encodeURIComponent(corps);
+    document.getElementById('note').textContent = 'Votre messagerie s’ouvre pour envoyer la demande.';
+    f.reset();
   });
 </script>
 </body>
